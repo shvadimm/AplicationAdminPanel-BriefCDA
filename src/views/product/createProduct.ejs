@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <button onclick="location.href='/products'"
+            style="margin-bottom: 12px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+            class="btn btn-info rounded-pill px-3" type="button">Go back</button>
+        <main class="container">
+            <h1 class="mb-4 mt-2">Create Product</h1>
+            <form method="post" action="/product-post-create">
+                <div class="mb-3">
+                    <label for="productName" class="form-label"></label>
+                    <input type="text" placeholder="Name" class="form-control" id="productName" name="productName">
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label"></label>
+                    <input type="number" placeholder="Price" class="form-control" id="productPrice" name="productPrice">
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label"></label>
+                    <textarea type="text" placeholder="Description" class="form-control" id="productDescription"
+                        name="productDescription"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label"></label>
+                    <select id="productCategory" name="productCategory" class="form-select">
+                        <option>Select Category</option>
+                        <% categories.forEach( (category)=> { %>
+                            <option value="<%= category._id %>">
+                                <%= category.categoryName %>
+                            </option>
+                            <% }) %>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary">Create</button>
+            </form>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>

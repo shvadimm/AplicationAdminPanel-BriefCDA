@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <main class="container">
+            <div class="col-12 row justify-content-center mt-2"></div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= product.productName %>
+                    </h5>
+                    <p class="card-text"><strong>Description :</strong>
+                        <%= product.productDescription %>
+                    </p>
+                    <p class="card-text"><strong>Price :</strong>
+                        <%= product.productPrice %>€
+                    </p>
+                    <p class="card-text"><strong>Category :</strong>
+                        <%= category.categoryName %>
+                    </p>
+                </div>
+            </div>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <main class="container">
+            <div class="col-12 row justify-content-center mt-2"></div>
+            <button onclick="location.href='/products'"
+                style="margin-bottom: 12px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                class="btn btn-info rounded-pill px-3" type="button">Go back</button>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= category.categoryName %>
+                    </h5>
+                </div>
+            </div>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>

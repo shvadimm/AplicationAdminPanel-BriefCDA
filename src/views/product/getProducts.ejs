@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <main class="container">
+            <div class="container mt-2">
+                <% if (success && Object.keys(success).length> 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+                        <% if (error && Object.keys(error).length> 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= error %>
+                            </div>
+                            <% } %>
+            </div>
+            <h1 class="mb-4 mt-2"> Products</h1>
+            </div>
+            <div class="container mt-5">
+                <a href="/product-create" type="button" class="btn btn-secondary">Create</a>
+                <table class="table table-striped mt-2">
+                    <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category of this product</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < products.length; i++) { %>
+                            <tr>
+                                <th scope="row">
+                                    <%= i+1 %>
+                                </th>
+                                <td>
+                                    <%= products[i].productName %>
+                                </td>
+                                <td>
+                                    <%= products[i].productPrice %>€
+                                </td>
+                                <td>
+                                    <a href="/category/<%= products[i].productCategory %>">View Category</a>
+                                </td>
+                                <td>
+                                    <a href="/product-update/<%= products[i]._id %>" type="button"
+                                        class="btn btn-warning rounded-pill px-3">Update</a>
+                                    <a href="/product-delete/<%= products[i]._id %>"
+                                        onclick="return confirm('Are you sure you want to delete this item?');"
+                                        type="button"
+                                        class="btn btn-danger rounded-pill px-3 rounded-pill px-3">Delete</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <main class="container">
+            <h1 class="mb-4 mt-2">Update Product</h1>
+            <form method="post" action="/product-post-update">
+                <input type="hidden" name="productID" value="<%= product._id %>" />
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="productName" name="productName"
+                        value="<%= product.productName %>">
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Price :</label>
+                    <input type="number" class="form-control" id="productPrice" name="productPrice"
+                        value="<%= product.productPrice %>">
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Description :</label>
+                    <textarea type="text" class="form-control" id="productDescription"
+                        name="productDescription"><%= product.productDescription %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Category :</label>
+                    <select id="productCategory" name="productCategory" class="form-select">
+                        <% categories.forEach( (category)=> { %>
+                            <% if(categoryProduct.categoryName===category.categoryName) { %>
+                                <option selected value="<%= category._id %>">
+                                    <%= category.categoryName %>
+                                </option>
+                                <% } else { %>
+                                    <option value="<%= category._id %>">
+                                        <%= category.categoryName %>
+                                    </option>
+                                    <% } %>
+                                        <% }) %>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-warning rounded-pill px-3">Update</button>
+            </form>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('../head'); %>
+</head>
+
+<body>
+    <%- include('../header'); -%>
+        <button onclick="location.href='/categories'"
+            style="margin-bottom: 12px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+            class="btn btn-info rounded-pill px-3" type="button">Go back</button>
+        <main class="container">
+            <h1 class="mb-4 mt-2">Create Category</h1>
+            <form method="post" action="/category-post-create">
+                <div class="mb-3">
+                    <label for="categoryName" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="categoryName" name="categoryName">
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">Create</button>
+            </form>
+        </main>
+        <%- include('../footer'); -%>
+</body>
+
+</html>
